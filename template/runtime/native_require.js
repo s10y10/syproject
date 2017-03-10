@@ -12,10 +12,23 @@ var game_file_list = [
 	"libs/modules/socket/socket.js",
 	"libs/modules/dragonBones/dragonBones.js",
 	"polyfill/promise.js",
+	"bin-debug/http/GameProxy.js",
+	"bin-debug/anim/DragonAnimation.js",
 	"bin-debug/AssetAdapter.js",
+	"bin-debug/AverageUtils.js",
+	"bin-debug/game/Enemy.js",
+	"bin-debug/game/GameScene.js",
+	"bin-debug/game/Hero.js",
+	"bin-debug/game/LoginButton.js",
+	"bin-debug/anim/DragonFactory.js",
+	"bin-debug/http/GameProxyEvent.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
+	"bin-debug/ObjectPool.js",
+	"bin-debug/ResLoadManager.js",
 	"bin-debug/ThemeAdapter.js",
+	"bin-debug/TimerManager.js",
+	"bin-debug/Utils.js",
 	//----auto game_file_list end----
 ];
 
@@ -50,7 +63,7 @@ egret_native.egretStart = function () {
         //----auto option start----
 		entryClassName: "Main",
 		frameRate: 30,
-		scaleMode: "noBorder",
+		scaleMode: "showAll",
 		contentWidth: 1136,
 		contentHeight: 640,
 		showPaintRect: false,

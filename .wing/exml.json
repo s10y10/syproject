@@ -1,0 +1,7 @@
+{
+    "15ab6e6f029": {
+        "path": "../resource/eui_skins/LoginButtonA.ts",
+        "class": "LoginButtonA",
+        "parentPath": "resource/eui_skins/ButtonSkin.exml"
+    }
+}

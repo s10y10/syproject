@@ -100,40 +100,30 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected startCreateScene(): void {
-        let sky = this.createBitmapByName("bg_jpg");
+        let sky = Utils.createBitmapByName("bg_jpg");
         this.addChild(sky);
         let stageW = this.stage.stageWidth;
         let stageH = this.stage.stageHeight;
 
-        let button = new eui.Button();
-        button.label = "Click!";
+        let button = new LoginButton();
+        button.labelDisplay.text = "登陆";
         button.horizontalCenter = 0;
         button.y = 400;
         this.addChild(button);
-        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
-    }
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    private createBitmapByName(name:string):egret.Bitmap {
-        let result = new egret.Bitmap();
-        let texture:egret.Texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
+        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.getUserData, this);
     }
 
-    /**
-     * 点击按钮
-     * Click the button
-     */
-    private onButtonClick(e: egret.TouchEvent) {
-        // let panel = new eui.Panel();
-        // panel.title = "Title";
-        // panel.horizontalCenter = 0;
-        // panel.verticalCenter = 0;
-        // this.addChild(panel);
-        var btn = e.target;
-        btn.y+= 5;
+    private getUserData():void{
+        // var proxy:GameProxy = new GameProxy();
+        this.createGameScene();
+    }
+
+    private createGameScene():void
+    {
+        ResLoadManager.i().loadGroup("game",()=>{
+            this.removeChildren();
+            var scene:GameScene = new GameScene();
+            this.addChild(scene);
+        },null,this);
     }
 }

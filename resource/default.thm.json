@@ -12,7 +12,8 @@
     "eui.ToggleSwitch": "resource/eui_skins/ToggleSwitchSkin.exml",
     "eui.VScrollBar": "resource/eui_skins/VScrollBarSkin.exml",
     "eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
-    "eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml"
+    "eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
+    "LoginButtonA": "resource/eui_skins/LoginButtonA.exml"
   },
   "autoGenerateExmlsList": true,
   "exmls": [

@@ -3,6 +3,10 @@
 		{
 			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json",
 			"name": "preload"
+		},
+		{
+			"keys": "map_png,houyi_texture_png,houyi_texture_json,houyi_skeleton_json,houyi_skeleton_ani,gongjianshou_texture_png,gongjianshou_texture_json,gongjianshou_skeleton_json,gongjianshou_skeleton_ani,hy_ack1_skeleton_ani,hy_ack1_texture_png,hy_ack1_skeleton_json,hy_ack1_texture_json",
+			"name": "game"
 		}
 	],
 	"resources": [
@@ -132,9 +136,74 @@
 			"name": "egret_icon_png"
 		},
 		{
-			"name": "description_json",
+			"url": "config/description.json",
 			"type": "json",
-			"url": "config/description.json"
+			"name": "description_json"
+		},
+		{
+			"url": "assets/map.png",
+			"type": "image",
+			"name": "map_png"
+		},
+		{
+			"url": "assets/anim/gongjianshou/gongjianshou_skeleton.ani",
+			"type": "bin",
+			"name": "gongjianshou_skeleton_ani"
+		},
+		{
+			"url": "assets/anim/gongjianshou/gongjianshou_texture.png",
+			"type": "image",
+			"name": "gongjianshou_texture_png"
+		},
+		{
+			"url": "assets/anim/houyi/houyi_skeleton.ani",
+			"type": "bin",
+			"name": "houyi_skeleton_ani"
+		},
+		{
+			"url": "assets/anim/houyi/houyi_texture.png",
+			"type": "image",
+			"name": "houyi_texture_png"
+		},
+		{
+			"url": "assets/anim/gongjianshou/gongjianshou_texture.json",
+			"type": "json",
+			"name": "gongjianshou_texture_json"
+		},
+		{
+			"url": "assets/anim/gongjianshou/gongjianshou_skeleton.json",
+			"type": "json",
+			"name": "gongjianshou_skeleton_json"
+		},
+		{
+			"url": "assets/anim/houyi/houyi_texture.json",
+			"type": "json",
+			"name": "houyi_texture_json"
+		},
+		{
+			"url": "assets/anim/houyi/houyi_skeleton.json",
+			"type": "json",
+			"name": "houyi_skeleton_json"
+		},
+		{
+			"url": "assets/anim/hy_ack1/hy_ack1_skeleton.ani",
+			"type": "bin",
+			"name": "hy_ack1_skeleton_ani"
+		},
+		{
+			"url": "assets/anim/hy_ack1/hy_ack1_texture.png",
+			"type": "image",
+			"name": "hy_ack1_texture_png"
+		},
+		{
+			"url": "assets/anim/hy_ack1/hy_ack1_skeleton.json",
+			"type": "json",
+			"name": "hy_ack1_skeleton_json"
+		},
+		{
+			"url": "assets/anim/hy_ack1/hy_ack1_texture.json",
+			"type": "json",
+			"name": "hy_ack1_texture_json"
 		}
 	]
 }
