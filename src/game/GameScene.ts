@@ -2,8 +2,13 @@ class GameScene extends egret.DisplayObjectContainer{
     private bg:egret.Bitmap;
     private hero:Hero;
     private enemy:Enemy;
-
     private stageHeight:number;
+
+    private startState:number = 0;
+    private moveingState:number = 1;
+    private attackState:number = 2;
+
+    private curState:number = 0;
     constructor()
     {
         super();
@@ -20,6 +25,32 @@ class GameScene extends egret.DisplayObjectContainer{
 
     private onEnterFrame(e:egret.Event):void
     {
+        if(this.curState == this.startState){
+            this.enemy.reset();
+            this.hero.reset();
+            this.curState = this.moveingState;
+        }
+        else if(this.curState == this.moveingState){
+            this.enemy.x -= this.enemy.moveSpeed;
+            if(this.enemy.x - this.hero.x <= this.hero.attackDis)
+            {
+                this.hero.setTarget(this.enemy);
+                this.enemy.stand();
+                this.hero.attack();
+                this.curState = this.attackState;
+            }
+        }else if(this.curState == this.attackState){
+            if(this.enemy.isDead){
+                this.sendMessage();
+                this.curState = this.startState;
+            }
+        }
+    }
+
+    private sendMessage():void
+    {
+        var proxy:GameProxy = new GameProxy();
+        proxy.sendHttpRequest(GameProxyType.KillEnemy);
     }
 
     private initBg():void
@@ -37,7 +68,7 @@ class GameScene extends egret.DisplayObjectContainer{
         this.addChild(this.hero);
 
         this.enemy = new Enemy();
-        this.enemy.x = 600;
+        this.enemy.x = 1300;
         this.enemy.y = this.stageHeight - 200;
         this.addChild(this.enemy);
     }

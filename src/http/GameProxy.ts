@@ -8,16 +8,18 @@ class GameProxy extends egret.EventDispatcher{
     public sendHttpRequest(type:string,para:any = null):void{
         var variables:egret.URLVariables = this.getURLVariables(type,para);
         var request = new egret.URLRequest();
+        request.data = variables;
         request.method = egret.URLRequestMethod.POST;
+        request.url = "http://10.0.9.99:8888";
         this._loader = new egret.URLLoader();
         this._loader.addEventListener(egret.IOErrorEvent.IO_ERROR,this.onError,this);
         this._loader.addEventListener(egret.Event.COMPLETE,this.onLoaderComplete,this);
+        this._loader.load(request);
     }
     
     private onError(e:egret.IOErrorEvent):void
     {
         this.dispatchEvent(new GameProxyEvent(GameProxyEvent.ERROR));
-        console.log(e.data);
         this.removeListener();
     }
 
@@ -29,7 +31,6 @@ class GameProxy extends egret.EventDispatcher{
         }else{
             this.dispatchEvent(new GameProxyEvent(GameProxyEvent.ERROR));
         }
-        console.log(e.data);
         this.removeListener();
     }
 

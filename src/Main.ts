@@ -114,8 +114,10 @@ class Main extends eui.UILayer {
     }
 
     private getUserData():void{
-        // var proxy:GameProxy = new GameProxy();
-        this.createGameScene();
+        var proxy:GameProxy = new GameProxy();
+        proxy.addEventListener(GameProxyEvent.SUCCESS,this.createGameScene,this);
+        proxy.addEventListener(GameProxyEvent.ERROR,this.createGameScene,this);
+        proxy.sendHttpRequest(GameProxyType.GetUserInfo);
     }
 
     private createGameScene():void
