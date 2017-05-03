@@ -10,7 +10,7 @@ class GameProxy extends egret.EventDispatcher{
         var request = new egret.URLRequest();
         request.data = variables;
         request.method = egret.URLRequestMethod.POST;
-        request.url = "http://10.0.9.99:8888";
+        request.url = "http://10.0.9.133:8888";
         this._loader = new egret.URLLoader();
         this._loader.addEventListener(egret.IOErrorEvent.IO_ERROR,this.onError,this);
         this._loader.addEventListener(egret.Event.COMPLETE,this.onLoaderComplete,this);
@@ -25,8 +25,11 @@ class GameProxy extends egret.EventDispatcher{
 
     private onLoaderComplete(e:egret.Event):void
     {
-        if(true)//判断返回值状态码
+        var resultData = e.target.data;
+        var jsonData = JSON.parse(resultData);
+        if(jsonData.s == 0)//判断返回值状态码
         {
+            console.log(resultData);
             this.dispatchEvent(new GameProxyEvent(GameProxyEvent.SUCCESS));
         }else{
             this.dispatchEvent(new GameProxyEvent(GameProxyEvent.ERROR));
